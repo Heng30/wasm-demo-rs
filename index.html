@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSM Maps</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <button id="hello-btn" style="margin: 20px 0px 10px">Say Hello</button>
+    <p id="hello-msg"></p>
+
+    <script type="module">
+      import init, { greet, init_lib, say_hello } from './pkg/maps.js';
+      var COUNT = 1;
+
+      async function run() {
+        await init();
+        await init_lib();
+      }
+
+      async function sayHello(name) {
+        let msg = await say_hello(name);
+        document.getElementById('hello-msg').textContent =
+          msg + COUNT.toString();
+
+        COUNT += 1;
+      }
+
+      document
+        .getElementById('hello-btn')
+        .addEventListener('click', function () {
+          sayHello('jack');
+        });
+
+      run();
+    </script>
+  </body>
+</html>

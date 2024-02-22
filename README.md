@@ -1,4 +1,4 @@
-### It a rust wasm demo project for study.
+### It's a rust wasm demo project for study.
 - install wasm-pack: `cargo install wasm-pack`
 
 - new a wasm project: `wasm-pack new <project-name>`

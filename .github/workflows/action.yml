@@ -17,12 +17,14 @@ jobs:
       - run: echo "start install Rust..."
       - name: Install Rust
         uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
       - run: echo "end install Rust..."
 
       - run: echo "start build..."
       - name: Install Cargo
         uses: actions-rs/cargo@v1
-        with: 
+        with:
           command: check
 
       - run: cargo install wasm-pack
